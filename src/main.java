@@ -83,7 +83,7 @@ public class main {
         System.out.print("\nEscriba el numero al que desee encontrarle multiplos en el vector\n\n");
         int x = teclado.nextInt();
 
-        System.out.print("\nlos multiplos de " + x +  " son:");
+        System.out.print("\nlos multiplos de " + x +  " que se encuentran en el vector son: \n" + "=".repeat(60));
         int multiplos = 0;
 
         for (int i = 0; i < 15; i++){
@@ -96,12 +96,52 @@ public class main {
         if (multiplos == 0 ) {
                 System.out.print("\nNo se encontro ningun multiplo en el vector\n");
             }
+        
+        System.out.print("\n" + "=".repeat(60));
 
+        int sumatotal = 0;
 
+        for (int i = 0; i < 15; i++) {
+            sumatotal += numeros[i];
 
+        }
         
 
+        double promedio = (double) sumatotal / numeros.length;
+        
 
+        System.out.print("\nEl promedio de los numeros del vector es: " + promedio );
+        System.out.print("\nLa suma total de los numeros del vector es: " + sumatotal );
+        System.out.print("\n" + "=".repeat(60) + "\n");
+
+        int promediomayor = 0;
+
+        for (int i = 0; i < numeros.length; i++){
+            if (numeros[i] > promedio) {
+                promediomayor++;
+            }
+        }
+            
+        int[] numerosmayorpromedio = new int[promediomayor];
+        int posicionpromedio = 0;
+        
+        for (int i = 0; i < numeros.length; i++){
+            if (numeros[i] > promedio) {
+                numerosmayorpromedio[posicionpromedio] = numeros[i];
+                posicionpromedio++;
+            }
+        }
+
+        System.out.print("Los numeros mayores al promedio son: \n");
+
+        for (int i = 0; i < numerosmayorpromedio.length; i++) {
+            System.out.print("[" + numerosmayorpromedio[i] + "]\n");
+
+        }
+
+        System.out.print("=".repeat(60));
+
+        
 
 
         
