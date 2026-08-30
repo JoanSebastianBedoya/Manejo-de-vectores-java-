@@ -20,7 +20,7 @@ public class main {
                 }
                 //Se condiciona la existencia o no de un numero en el vector
                 if (existencia){
-                    System.out.print("Error: El numero ingresado ya se encuentra en el vector");
+                    System.out.print("\nError: El numero ingresado ya se encuentra en el vector\n" + "=".repeat(60));
                 } else {
                     numeros[i] = numero;
                     System.out.print("\nNumero agregado con exito!\n" + "=".repeat(60)); // se ingresa cumpliendo todas las condiciones
@@ -32,12 +32,23 @@ public class main {
             
         }
 
+        System.out.print("\n");
+        for (int i = 0; i < 15; i++) {
+            System.out.print("[" + numeros[i] + "]\n");
+        }
+        System.out.print("\n" + "=".repeat(60));
+
+        int mayor = numeros[0];
+        int menor = numeros[0];
         //Busqueda de numero en el vector
         while (true){
             System.out.print("\nIngrese el numero que desea buscar (Escribir -1 para salir)\n\n ");
             int search = teclado.nextInt();
             boolean encontrado = false;
             int posicion = -1;
+            
+            
+
 
             if (search == -1){
                 break;
@@ -46,23 +57,55 @@ public class main {
                     if (numeros[i] == search){
                         posicion = i;  
                         encontrado = true; 
-                        break;
-                    }       
+                    }
+                    
+                    if (numeros[i] < menor) {
+                        menor = numeros[i];
+                    }
+                    
+                    if (numeros[i] > mayor){
+                        mayor = numeros[i];
+                    }
                 }
 
                 if (encontrado){ 
-                    System.out.print("\nEl numero que buscas esta en la posicion [" + posicion + "] del vector");
+                    System.out.print("\nEl numero que buscas esta en la posicion [" + posicion + "] del vector\n" + "=".repeat(60));
                 } else {
-                    System.out.print("\nEl numero no se encuentra en el vector");
+                    System.out.print("\nEl numero no se encuentra en el vector\n" + "=".repeat(60));
                 }
 
+            }
+        }
+
+        System.out.print("\n" + "=".repeat(60) + "\nEl numero menor del vector es: [" + menor + "]\n" );
+        System.out.print("El numero mayor del vector es: [" + mayor + "]\n" + "=".repeat(60));
+       
+        System.out.print("\nEscriba el numero al que desee encontrarle multiplos en el vector\n\n");
+        int x = teclado.nextInt();
+
+        System.out.print("\nlos multiplos de " + x +  " son:");
+        int multiplos = 0;
+
+        for (int i = 0; i < 15; i++){
+            if (numeros[i] % x == 0){
+                System.out.print("\n [" + numeros[i] + "]");
+                multiplos++;
+            }   
+        }
+
+        if (multiplos == 0 ) {
+                System.out.print("\nNo se encontro ningun multiplo en el vector\n");
             }
 
 
 
+        
 
 
-        }
+
+
+        
+         
 
         
 
